@@ -1,0 +1,12 @@
+---
+name: nginx-webserver
+services:
+    nginx:
+        ports:
+            - 8080:80
+        volumes:
+            - ./data/html:/usr/share/nginx/html
+            - ./data/default/default.conf:/etc/nginx/conf.d/default.conf
+        container_name: web01
+        image: nginx
+        restart: unless-stopped 
